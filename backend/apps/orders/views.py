@@ -220,13 +220,14 @@ class UpdateOrderStatusView(APIView):
     """Driver updates order status during delivery."""
     permission_classes = [IsAuthenticated, IsDriver]
 
-    # Valid status transitions for drivers
+    # Valid status transitions for drivers via this endpoint.
+    # ARRIVED_AT_DESTINATION → DELIVERED is intentionally excluded:
+    # delivery completion requires OTP verification via VerifyDeliveryOTPView.
     DRIVER_VALID_TRANSITIONS = {
         Order.Status.DRIVER_ON_WAY: [Order.Status.ARRIVED_AT_PICKUP],
         Order.Status.ARRIVED_AT_PICKUP: [Order.Status.PICKED_UP],
         Order.Status.PICKED_UP: [Order.Status.IN_TRANSIT],
         Order.Status.IN_TRANSIT: [Order.Status.ARRIVED_AT_DESTINATION],
-        Order.Status.ARRIVED_AT_DESTINATION: [Order.Status.DELIVERED],
     }
 
     @extend_schema(tags=['Orders'], request=OrderStatusUpdateSerializer)
@@ -261,28 +262,15 @@ class UpdateOrderStatusView(APIView):
 
         order.update_status(new_status, note=note, location=location)
 
-        # Send notifications
+        # Send notifications for each milestone
         try:
-            from apps.notifications.services import (
-                notify_driver_arrived, notify_order_picked_up, notify_order_delivered
-            )
+            from apps.notifications.services import notify_driver_arrived, notify_order_picked_up
             if new_status == Order.Status.ARRIVED_AT_PICKUP:
                 notify_driver_arrived(order)
             elif new_status == Order.Status.PICKED_UP:
                 notify_order_picked_up(order)
-            elif new_status == Order.Status.DELIVERED:
-                notify_order_delivered(order)
-                # Update driver stats
-                dp = request.user.driver_profile
-                dp.total_deliveries += 1
-                dp.total_earnings += order.driver_earnings
-                dp.save()
-                # Update customer profile
-                cp = order.customer.customer_profile
-                cp.total_orders += 1
-                cp.save()
         except Exception as e:
-            logger.error(f"Notification error: {e}")
+            logger.error(f"Notification error on status update: {e}")
 
         return Response({
             'success': True,

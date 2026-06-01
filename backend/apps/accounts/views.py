@@ -6,7 +6,7 @@ from django.contrib.gis.geos import Point
 from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.measure import D
 from django.utils import timezone
-from rest_framework import status, generics
+from rest_framework import status, generics, filters
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -427,3 +427,132 @@ class NearbyDriversView(APIView):
             'data': serializer.data,
             'count': len(serializer.data),
         })
+
+
+# ─── Admin management views ──────────────────────────────────────────────────
+
+class PendingDriversView(generics.ListAPIView):
+    """GET /accounts/admin/drivers/pending/ — list drivers awaiting approval."""
+    permission_classes = [IsAuthenticated, IsAdmin]
+    serializer_class = DriverProfileSerializer
+
+    def get_queryset(self):
+        return DriverProfile.objects.filter(is_approved=False).select_related('user').order_by('user__date_joined')
+
+
+class DriverApprovalView(APIView):
+    """
+    PATCH /accounts/admin/drivers/{user_id}/approve/
+    Admin approves or suspends a driver account.
+    """
+    permission_classes = [IsAuthenticated, IsAdmin]
+
+    def patch(self, request, user_id):
+        try:
+            driver_profile = DriverProfile.objects.select_related('user').get(user_id=user_id)
+        except DriverProfile.DoesNotExist:
+            return Response({'success': False, 'message': 'Driver not found.'}, status=status.HTTP_404_NOT_FOUND)
+
+        action = request.data.get('action')
+        if action not in ('approve', 'suspend', 'reject'):
+            return Response(
+                {'success': False, 'message': 'action must be "approve", "suspend", or "reject".'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        if action == 'approve':
+            driver_profile.is_approved = True
+            driver_profile.approved_at = timezone.now()
+            driver_profile.user.is_active = True
+            driver_profile.user.save(update_fields=['is_active'])
+            driver_profile.save(update_fields=['is_approved', 'approved_at'])
+            try:
+                from apps.notifications.services import notify_driver_approved
+                notify_driver_approved(driver_profile.user)
+            except Exception as e:
+                logger.error(f"Failed to notify driver of approval: {e}")
+            message = 'Driver account approved.'
+
+        elif action == 'suspend':
+            driver_profile.is_approved = False
+            driver_profile.is_online = False
+            driver_profile.user.is_active = False
+            driver_profile.user.save(update_fields=['is_active'])
+            driver_profile.save(update_fields=['is_approved', 'is_online'])
+            message = 'Driver account suspended.'
+
+        else:  # reject
+            driver_profile.user.is_active = False
+            driver_profile.user.save(update_fields=['is_active'])
+            message = 'Driver application rejected.'
+
+        return Response({'success': True, 'message': message})
+
+
+class MerchantApprovalView(APIView):
+    """
+    PATCH /accounts/admin/merchants/{user_id}/approve/
+    Admin approves or suspends a merchant account.
+    """
+    permission_classes = [IsAuthenticated, IsAdmin]
+
+    def patch(self, request, user_id):
+        try:
+            merchant_profile = MerchantProfile.objects.select_related('user').get(user_id=user_id)
+        except MerchantProfile.DoesNotExist:
+            return Response({'success': False, 'message': 'Merchant not found.'}, status=status.HTTP_404_NOT_FOUND)
+
+        action = request.data.get('action')
+        if action not in ('approve', 'suspend', 'reject'):
+            return Response(
+                {'success': False, 'message': 'action must be "approve", "suspend", or "reject".'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        if action == 'approve':
+            merchant_profile.is_approved = True
+            merchant_profile.approved_at = timezone.now()
+            merchant_profile.user.is_active = True
+            merchant_profile.user.save(update_fields=['is_active'])
+            merchant_profile.save(update_fields=['is_approved', 'approved_at'])
+            try:
+                from apps.notifications.services import notify_merchant_approved
+                notify_merchant_approved(merchant_profile.user)
+            except Exception as e:
+                logger.error(f"Failed to notify merchant of approval: {e}")
+            message = 'Merchant account approved.'
+
+        elif action == 'suspend':
+            merchant_profile.is_approved = False
+            merchant_profile.is_open = False
+            merchant_profile.user.is_active = False
+            merchant_profile.user.save(update_fields=['is_active'])
+            merchant_profile.save(update_fields=['is_approved', 'is_open'])
+            message = 'Merchant account suspended.'
+
+        else:
+            merchant_profile.user.is_active = False
+            merchant_profile.user.save(update_fields=['is_active'])
+            message = 'Merchant application rejected.'
+
+        return Response({'success': True, 'message': message})
+
+
+class AdminUserListView(generics.ListAPIView):
+    """GET /accounts/admin/users/?type=CUSTOMER|DRIVER|MERCHANT — admin lists all users."""
+    permission_classes = [IsAuthenticated, IsAdmin]
+    serializer_class = UserProfileSerializer
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['full_name', 'phone', 'email']
+    ordering_fields = ['date_joined', 'full_name']
+    ordering = ['-date_joined']
+
+    def get_queryset(self):
+        qs = User.objects.all()
+        user_type = self.request.query_params.get('type')
+        is_active = self.request.query_params.get('is_active')
+        if user_type:
+            qs = qs.filter(user_type=user_type)
+        if is_active is not None:
+            qs = qs.filter(is_active=is_active.lower() == 'true')
+        return qs

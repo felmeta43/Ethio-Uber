@@ -7,6 +7,7 @@ from .views import (
     SendOTPView, VerifyOTPView, LoginView, LogoutView,
     ProfileView, ChangePasswordView, SavedAddressView,
     DriverStatusView, NearbyDriversView,
+    PendingDriversView, DriverApprovalView, MerchantApprovalView, AdminUserListView,
 )
 
 urlpatterns = [
@@ -35,4 +36,10 @@ urlpatterns = [
     # Driver
     path('driver/status/', DriverStatusView.as_view(), name='driver-status'),
     path('drivers/nearby/', NearbyDriversView.as_view(), name='nearby-drivers'),
+
+    # Admin — user management & approvals
+    path('admin/users/', AdminUserListView.as_view(), name='admin-user-list'),
+    path('admin/drivers/pending/', PendingDriversView.as_view(), name='admin-pending-drivers'),
+    path('admin/drivers/<int:user_id>/approve/', DriverApprovalView.as_view(), name='admin-driver-approve'),
+    path('admin/merchants/<int:user_id>/approve/', MerchantApprovalView.as_view(), name='admin-merchant-approve'),
 ]

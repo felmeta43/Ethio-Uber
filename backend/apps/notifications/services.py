@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 def create_notification(user, title, body, notification_type, data=None, order=None):
-    """Save an in-app notification record and optionally send push."""
+    """Save an in-app notification record and dispatch push asynchronously via Celery."""
     from .models import Notification
     notif = Notification.objects.create(
         user=user,
@@ -21,8 +21,13 @@ def create_notification(user, title, body, notification_type, data=None, order=N
         data=data or {},
         order=order,
     )
-    # Fire push notification asynchronously
-    send_push_to_user(user, title, body, data or {})
+    # Dispatch push notification via Celery so it doesn't block the request
+    try:
+        from .tasks import send_push_notification_task
+        send_push_notification_task.delay(user.id, title, body, data or {})
+    except Exception:
+        # Fallback to synchronous if Celery isn't available (e.g., during tests)
+        send_push_to_user(user, title, body, data or {})
     return notif
 
 

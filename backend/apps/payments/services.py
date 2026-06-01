@@ -7,6 +7,42 @@ from django.utils import timezone
 logger = logging.getLogger(__name__)
 
 
+def credit_driver_earnings(order):
+    """
+    Credit a driver's wallet with their earnings after a successful delivery.
+    Commission is deducted before crediting. Idempotent — safe to call multiple times.
+    """
+    from .models import Wallet, WalletTransaction
+    from apps.orders.models import DeliveryFeeConfig
+
+    if not order.driver:
+        logger.warning(f"Cannot credit earnings: no driver assigned to order {order.order_number}")
+        return
+
+    # Avoid double-crediting
+    already_credited = WalletTransaction.objects.filter(
+        purpose=WalletTransaction.Purpose.DRIVER_EARNINGS,
+        order=order,
+    ).exists()
+    if already_credited:
+        logger.info(f"Driver earnings already credited for order {order.order_number}")
+        return
+
+    try:
+        driver_wallet, _ = Wallet.objects.get_or_create(user=order.driver)
+        # Use pre-computed driver_earnings on the order (set at fee calculation time)
+        earnings = order.driver_earnings
+        driver_wallet.credit(
+            earnings,
+            purpose=WalletTransaction.Purpose.DRIVER_EARNINGS,
+            reference=f'EARN-{order.order_number}',
+            order=order,
+        )
+        logger.info(f"Credited {earnings} ETB to driver {order.driver.full_name} for order {order.order_number}")
+    except Exception as e:
+        logger.error(f"Failed to credit driver earnings for order {order.order_number}: {e}")
+
+
 def process_refund(order):
     """
     Refund payment for a cancelled order.
