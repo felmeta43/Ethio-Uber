@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Colors -->
+    <color name="primary">#078C03</color>
+    <color name="primary_dark">#055C02</color>
+    <color name="primary_variant">#056202</color>
+    <color name="accent">#F5A623</color>
+    <color name="accent_dark">#D4891A</color>
+
+    <!-- Status Colors -->
+    <color name="error">#D32F2F</color>
+    <color name="danger">#D32F2F</color>
+    <color name="success">#2E7D32</color>
+    <color name="warning">#F57F17</color>
+    <color name="info">#0277BD</color>
+
+    <!-- Neutral Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_hint">#BDBDBD</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    <color name="text_on_accent">#FFFFFF</color>
+
+    <!-- Background Colors -->
+    <color name="background">#F5F5F5</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="divider">#E0E0E0</color>
+
+    <!-- Status Badge Colors -->
+    <color name="status_pending">#FF9800</color>
+    <color name="status_active">#4CAF50</color>
+    <color name="status_completed">#2196F3</color>
+    <color name="status_cancelled">#F44336</color>
+
+    <!-- Map / UI Overlay -->
+    <color name="map_overlay">#80000000</color>
+    <color name="ripple_primary">#33078C03</color>
+    <color name="ripple_error">#33D32F2F</color>
+</resources>

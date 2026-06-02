@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Delivery motorcycle icon for Ethio-Uber.
+    A simplified side-view of a motorcycle with a parcel box.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Background circle (safe-zone fill) -->
+    <path
+        android:fillColor="#078C03"
+        android:pathData="M54,54 m-54,0 a54,54 0,1 1 108,0 a54,54 0,1 1 -108,0" />
+
+    <!-- Rear wheel -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M28,70 a10,10 0,1 1 20,0 a10,10 0,1 1 -20,0 Z
+                          M32,70 a6,6 0,1 1 12,0 a6,6 0,1 1 -12,0 Z"
+        android:fillType="evenOdd" />
+
+    <!-- Front wheel -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M60,70 a10,10 0,1 1 20,0 a10,10 0,1 1 -20,0 Z
+                          M64,70 a6,6 0,1 1 12,0 a6,6 0,1 1 -12,0 Z"
+        android:fillType="evenOdd" />
+
+    <!-- Frame / body of motorcycle -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M38,70 L42,56 L55,52 L68,56 L70,70 L60,70 L60,66 L70,66 L68,58
+                          L56,54 L44,58 L42,66 L40,66 L40,70 Z" />
+
+    <!-- Seat / rider silhouette -->
+    <path
+        android:fillColor="#F5A623"
+        android:pathData="M44,54 Q47,44 54,43 Q61,42 64,52 L58,54 Q56,47 54,47
+                          Q51,47 49,53 Z" />
+
+    <!-- Handlebar -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M64,52 L72,50 L74,54 L66,55 Z" />
+
+    <!-- Parcel box on rear rack -->
+    <path
+        android:fillColor="#F5A623"
+        android:pathData="M30,50 L44,50 L44,62 L30,62 Z" />
+    <path
+        android:fillColor="#078C03"
+        android:pathData="M30,50 L44,50 L44,52 L30,52 Z" />
+    <path
+        android:fillColor="#078C03"
+        android:pathData="M36,50 L38,50 L38,62 L36,62 Z" />
+
+</vector>

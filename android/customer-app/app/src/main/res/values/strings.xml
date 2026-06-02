@@ -53,4 +53,27 @@
     <string name="saved_addresses">Saved Addresses</string>
     <string name="logout">Logout</string>
     <string name="change_password">Change Password</string>
+    <string name="logout_confirm_message">Are you sure you want to log out?</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="change">Change</string>
+
+    <!-- Rating -->
+    <string name="please_select_rating">Please select a star rating</string>
+    <string name="rating_submitted">Thank you for your rating!</string>
+
+    <!-- Payment / Wallet -->
+    <string name="wallet_balance_format">ETB %s</string>
+    <string name="enter_amount_etb">Amount (ETB)</string>
+    <string name="proceed">Proceed</string>
+    <string name="cancel">Cancel</string>
+    <string name="invalid_amount">Please enter a valid amount</string>
+    <string name="top_up_initiated">Top-up initiated. Check your payment app.</string>
+    <string name="cannot_open_browser">Unable to open payment page</string>
+
+    <!-- General -->
+    <string name="coming_soon">Coming soon</string>
+    <string name="no_orders">No orders yet</string>
+    <string name="order_history">My Orders</string>
 </resources>

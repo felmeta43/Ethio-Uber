@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Main app theme: Material3 DayNight with no ActionBar -->
+    <style name="Theme.EthioUberDriver" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorPrimaryVariant">@color/primary_variant</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorSecondaryVariant">@color/accent_dark</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorError">@color/error</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="android:statusBarColor">@color/primary_dark</item>
+        <item name="android:navigationBarColor">@color/surface</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="materialButtonStyle">@style/Widget.EthioUberDriver.Button</item>
+        <item name="bottomNavigationStyle">@style/Widget.EthioUberDriver.BottomNavigationView</item>
+    </style>
+
+    <!-- Splash screen theme (shows before MainActivity inflates) -->
+    <style name="Theme.EthioUberDriver.Splash" parent="Theme.EthioUberDriver">
+        <item name="android:windowBackground">@color/primary</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:navigationBarColor">@color/primary</item>
+    </style>
+
+    <!-- BottomSheetDialog theme override so sheets match app palette -->
+    <style name="Theme.EthioUberDriver.BottomSheet" parent="Theme.Material3.DayNight.BottomSheetDialog">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorError">@color/error</item>
+        <item name="bottomSheetStyle">@style/Widget.EthioUberDriver.BottomSheet</item>
+    </style>
+
+    <!-- Widget: Material Button with Ethiopian green -->
+    <style name="Widget.EthioUberDriver.Button" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
+    <!-- Widget: Outlined / Danger button for Reject -->
+    <style name="Widget.EthioUberDriver.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/error</item>
+        <item name="android:textColor">@color/error</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
+    <!-- Widget: Danger / Error button -->
+    <style name="Widget.EthioUberDriver.Button.Danger" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/error</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <!-- Widget: BottomNavigationView -->
+    <style name="Widget.EthioUberDriver.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemActiveIndicatorStyle">@style/Widget.EthioUberDriver.BottomNav.Indicator</item>
+    </style>
+
+    <style name="Widget.EthioUberDriver.BottomNav.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/ripple_primary</item>
+    </style>
+
+    <!-- Widget: BottomSheet -->
+    <style name="Widget.EthioUberDriver.BottomSheet" parent="Widget.Material3.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.EthioUberDriver.BottomSheet</item>
+    </style>
+
+    <style name="ShapeAppearance.EthioUberDriver.BottomSheet" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <!-- TextAppearance overrides -->
+    <style name="TextAppearance.EthioUberDriver.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.EthioUberDriver.Amount" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Rounded rectangle background for status chips in item_order.xml.
+    Tint is set programmatically per status in the adapter.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <corners android:radius="12dp" />
+
+    <!-- Default tint; overridden at runtime -->
+    <solid android:color="@color/status_active" />
+
+</shape>

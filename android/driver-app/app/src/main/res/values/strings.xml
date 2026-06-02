@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Ethio-Uber Driver</string>
+    <string name="google_maps_key">YOUR_GOOGLE_MAPS_API_KEY_HERE</string>
+
+    <!-- Auth: Login -->
+    <string name="login">Login</string>
+    <string name="login_title">Welcome Back</string>
+    <string name="login_subtitle">Sign in to your driver account</string>
+    <string name="btn_login">Login</string>
+    <string name="no_account">Don\'t have an account? Register</string>
+
+    <!-- Auth: Register -->
+    <string name="register">Register</string>
+    <string name="register_title">Create Account</string>
+    <string name="register_subtitle">Join Ethio-Uber as a driver</string>
+    <string name="btn_register">Register</string>
+    <string name="already_have_account">Already have an account? Login</string>
+    <string name="full_name">Full Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="vehicle_type">Vehicle Type</string>
+    <string name="license_plate">License Plate</string>
+    <string name="vehicle_model">Vehicle Model</string>
+    <string name="national_id_number">National ID Number</string>
+    <string name="driver_license_number">Driver\'s License Number</string>
+    <string name="upload_national_id">Upload National ID</string>
+    <string name="upload_license">Upload Driver\'s License</string>
+    <string name="upload_vehicle_photo">Upload Vehicle Photo</string>
+    <string name="step_indicator">Step %1$d of 3</string>
+
+    <!-- Auth: OTP -->
+    <string name="otp_title">Verify Phone</string>
+    <string name="otp_subtitle">Enter the 6-digit code sent to your phone</string>
+    <string name="otp_code">OTP Code</string>
+    <string name="verify">Verify</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="resend_otp_timer">Resend OTP in %1$ds</string>
+
+    <!-- Home -->
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+    <string name="go_online">GO ONLINE</string>
+    <string name="go_offline">GO OFFLINE</string>
+    <string name="waiting_for_orders">Waiting for orders…</string>
+    <string name="you_are_online">You are ONLINE</string>
+    <string name="you_are_offline">You are OFFLINE</string>
+    <string name="today_earnings">Today\'s Earnings</string>
+    <string name="today_earnings_format">Today: %1$s</string>
+    <string name="trips_completed">Trips Completed</string>
+    <string name="deliveries_count">%1$d deliveries</string>
+
+    <!-- Order: General -->
+    <string name="new_order">New Delivery Request!</string>
+    <string name="accept">Accept</string>
+    <string name="reject">Reject</string>
+    <string name="navigate">Navigate</string>
+    <string name="pickup_address">Pickup Address</string>
+    <string name="destination_address">Destination Address</string>
+    <string name="pickup_address_format">Pickup: %1$s</string>
+    <string name="destination_address_format">Destination: %1$s</string>
+    <string name="parcel_format">Parcel: %1$s</string>
+    <string name="customer_phone_format">Customer: %1$s</string>
+    <string name="confirm_delivery">Confirm Delivery</string>
+    <string name="enter_otp">Please enter the OTP from the customer</string>
+    <string name="otp_length_error">OTP must be 6 digits</string>
+    <string name="delivery_confirmed">Delivery confirmed successfully!</string>
+    <string name="order_number_format">Order #%1$s</string>
+    <string name="distance_format">%.1f km</string>
+    <string name="estimated_fee">Estimated Fee</string>
+
+    <!-- Order History -->
+    <string name="my_trips">My Trips</string>
+    <string name="no_orders_yet">No orders yet</string>
+    <string name="route_format">%1$s → %2$s</string>
+
+    <!-- Earnings -->
+    <string name="earnings">Earnings</string>
+    <string name="total_earnings">Total Earnings</string>
+    <string name="total_earnings_label">Total Balance</string>
+    <string name="today_label">Today</string>
+    <string name="pending_withdrawal">Pending</string>
+    <string name="pending_withdrawal_format">Pending: %1$s</string>
+    <string name="week_earnings_format">This Week: %1$s</string>
+    <string name="request_withdrawal">Request Withdrawal</string>
+    <string name="no_transactions">No transactions yet</string>
+
+    <!-- Withdrawal -->
+    <string name="withdrawal">Withdrawal</string>
+    <string name="withdrawal_title">Request Withdrawal</string>
+    <string name="withdrawal_amount">Amount (ETB)</string>
+    <string name="withdrawal_method">Withdrawal Method</string>
+    <string name="account_number">Account Number</string>
+    <string name="submit">Submit Request</string>
+    <string name="withdrawal_success">Withdrawal request submitted!</string>
+    <string name="withdrawal_methods_telebirr">Telebirr</string>
+    <string name="withdrawal_methods_cbe">CBE Birr</string>
+    <string name="withdrawal_methods_bank">Bank Transfer</string>
+
+    <!-- Profile -->
+    <string name="profile">Profile</string>
+    <string name="driver_name">Driver Name</string>
+    <string name="phone_label">Phone</string>
+    <string name="rating">Rating</string>
+    <string name="rating_format">Rating: %.1f ★</string>
+    <string name="vehicle_info">Vehicle Info</string>
+    <string name="vehicle_info_format">%1$s — %2$s</string>
+    <string name="online_status_toggle">Available for Deliveries</string>
+    <string name="logout">Logout</string>
+    <string name="logout_confirm_title">Logout</string>
+    <string name="logout_confirm_message">Are you sure you want to logout?</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_orders">Orders</string>
+    <string name="nav_earnings">Earnings</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Errors / Generic -->
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="error_network">No internet connection.</string>
+    <string name="loading">Loading…</string>
+    <string name="retry">Retry</string>
+    <string name="amount_error">Please enter a valid amount</string>
+    <string name="account_number_error">Please enter your account number</string>
+</resources>
