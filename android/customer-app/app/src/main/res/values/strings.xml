@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ethio-Uber</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">YOUR_GOOGLE_MAPS_API_KEY</string>
+
+    <!-- Auth -->
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="full_name">Full Name</string>
+    <string name="phone_number">Phone Number (+251…)</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="otp_code">6-Digit OTP Code</string>
+    <string name="verify">Verify</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="dont_have_account">Don\'t have an account? Register</string>
+    <string name="already_have_account">Already have an account? Login</string>
+
+    <!-- Home -->
+    <string name="new_delivery">New Delivery</string>
+    <string name="hello_user">Hello, %s</string>
+    <string name="nearby_drivers">%d drivers nearby</string>
+
+    <!-- Order -->
+    <string name="pickup_location">Pickup Location</string>
+    <string name="destination">Destination</string>
+    <string name="parcel_description">Describe your parcel</string>
+    <string name="parcel_size">Parcel Size</string>
+    <string name="urgent_delivery">Urgent Delivery</string>
+    <string name="estimate_fee">Estimate Fee</string>
+    <string name="confirm_order">Confirm Order</string>
+    <string name="total_fee">Total: %s ETB</string>
+    <string name="delivery_code">Delivery Code: %s</string>
+    <string name="give_this_to_driver">Share this code with your driver to confirm delivery</string>
+    <string name="track_delivery">Track Delivery</string>
+    <string name="cancel_order">Cancel Order</string>
+    <string name="call_driver">Call Driver</string>
+    <string name="order_delivered">Order Delivered!</string>
+    <string name="rate_your_driver">Rate your driver</string>
+
+    <!-- Payment -->
+    <string name="select_payment">Select Payment Method</string>
+    <string name="wallet_balance">Wallet Balance: %s ETB</string>
+    <string name="top_up_wallet">Top Up Wallet</string>
+    <string name="pay_telebirr">Pay with Telebirr</string>
+    <string name="pay_cbe_birr">Pay with CBE Birr</string>
+    <string name="pay_chapa">Pay with Chapa</string>
+    <string name="pay_cash">Cash on Delivery</string>
+    <string name="pay_wallet">Pay from Wallet</string>
+
+    <!-- Profile -->
+    <string name="profile">Profile</string>
+    <string name="saved_addresses">Saved Addresses</string>
+    <string name="logout">Logout</string>
+    <string name="change_password">Change Password</string>
+</resources>

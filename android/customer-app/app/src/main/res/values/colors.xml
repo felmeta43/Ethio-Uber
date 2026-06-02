@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ethiopian flag green as primary -->
+    <color name="primary">#078C03</color>
+    <color name="primary_dark">#055C02</color>
+    <color name="primary_light">#4CAF50</color>
+
+    <!-- Ethiopian flag yellow as accent -->
+    <color name="accent">#F5A623</color>
+    <color name="accent_dark">#E08C00</color>
+
+    <!-- Ethiopian flag red for danger/cancel -->
+    <color name="danger">#D32F2F</color>
+
+    <!-- Neutrals -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="background">#F5F5F5</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="divider">#E0E0E0</color>
+
+    <!-- Status colors -->
+    <color name="status_pending">#FF9800</color>
+    <color name="status_active">#2196F3</color>
+    <color name="status_delivered">#4CAF50</color>
+    <color name="status_cancelled">#F44336</color>
+</resources>
