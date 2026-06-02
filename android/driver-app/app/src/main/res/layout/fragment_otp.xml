@@ -31,10 +31,10 @@
         android:textColor="@color/text_primary"
         android:layout_marginBottom="8dp" />
 
-    <!-- Hint (phone number filled in code) -->
+    <!-- Hint: shows "Enter the 6-digit code sent to +251..." populated in code -->
     <TextView
         android:id="@+id/tvPhoneHint"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/otp_subtitle"
         android:textSize="14sp"
@@ -52,7 +52,7 @@
         android:layout_marginBottom="24dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_otp"
+            android:id="@+id/etOtp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -65,7 +65,7 @@
 
     <!-- Verify Button -->
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_verify"
+        android:id="@+id/btnVerify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/verify"
@@ -76,23 +76,13 @@
 
     <!-- Progress Bar -->
     <ProgressBar
-        android:id="@+id/progress_bar"
+        android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:layout_marginBottom="16dp" />
 
-    <!-- Resend OTP -->
-    <TextView
-        android:id="@+id/tv_resend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/resend_otp"
-        android:textColor="@color/primary"
-        android:textSize="14sp"
-        android:padding="8dp" />
-
-    <!-- Also expose tvResendOtp as used in OtpFragment.kt -->
+    <!-- Resend OTP link (used by OtpFragment.kt as binding.tvResendOtp) -->
     <TextView
         android:id="@+id/tvResendOtp"
         android:layout_width="wrap_content"
@@ -100,7 +90,6 @@
         android:text="@string/resend_otp"
         android:textColor="@color/primary"
         android:textSize="14sp"
-        android:padding="8dp"
-        android:visibility="gone" />
+        android:padding="8dp" />
 
 </LinearLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Ethio-Uber Driver App icon foreground: a simplified motorcycle/delivery scooter
+    drawn as a vector path on a transparent background.
+    Intended for use both as the adaptive icon foreground layer and inline icon references.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Drop shadow / glow effect behind body -->
+    <path
+        android:pathData="M54,76 m-22,0 a22,8 0 1,0 44,0 a22,8 0 1,0 -44,0"
+        android:fillColor="#22000000" />
+
+    <!-- Rear wheel -->
+    <path
+        android:pathData="M32,68 m-10,0 a10,10 0 1,0 20,0 a10,10 0 1,0 -20,0"
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#CCCCCC"
+        android:strokeWidth="1.5" />
+    <path
+        android:pathData="M32,68 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0"
+        android:fillColor="#CCCCCC" />
+
+    <!-- Front wheel -->
+    <path
+        android:pathData="M76,68 m-10,0 a10,10 0 1,0 20,0 a10,10 0 1,0 -20,0"
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#CCCCCC"
+        android:strokeWidth="1.5" />
+    <path
+        android:pathData="M76,68 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0"
+        android:fillColor="#CCCCCC" />
+
+    <!-- Motorcycle body/frame -->
+    <path
+        android:pathData="M35,65 L42,50 L58,48 L68,55 L76,58 L76,65 L35,65 Z"
+        android:fillColor="#078C03" />
+
+    <!-- Seat / rear fairing -->
+    <path
+        android:pathData="M42,50 L54,46 L56,50 L48,52 Z"
+        android:fillColor="#055C02" />
+
+    <!-- Fuel tank / body upper -->
+    <path
+        android:pathData="M52,46 L62,46 L66,55 L54,56 Z"
+        android:fillColor="#0AA804" />
+
+    <!-- Front fork / steering column -->
+    <path
+        android:pathData="M70,48 L76,58 L78,58 L73,47 Z"
+        android:fillColor="#055C02" />
+
+    <!-- Handlebar -->
+    <path
+        android:pathData="M68,44 L78,44"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:strokeLineCap="round" />
+
+    <!-- Delivery box / cargo on rear -->
+    <rect
+        android:x="36"
+        android:y="42"
+        android:width="18"
+        android:height="13"
+        android:rx="2"
+        android:fillColor="#F5A623" />
+
+    <!-- Box lid line -->
+    <path
+        android:pathData="M36,47 L54,47"
+        android:strokeColor="#D4891A"
+        android:strokeWidth="1.5" />
+
+    <!-- Box handle -->
+    <path
+        android:pathData="M43,44 L47,44"
+        android:strokeColor="#D4891A"
+        android:strokeWidth="2"
+        android:strokeLineCap="round" />
+
+    <!-- Exhaust pipe detail -->
+    <path
+        android:pathData="M38,64 L32,66"
+        android:strokeColor="#888888"
+        android:strokeWidth="2"
+        android:strokeLineCap="round" />
+
+    <!-- Rider silhouette (helmet + body) -->
+    <path
+        android:pathData="M57,38 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0"
+        android:fillColor="#212121" />
+    <path
+        android:pathData="M54,43 L60,43 L62,50 L52,50 Z"
+        android:fillColor="#333333" />
+
+</vector>

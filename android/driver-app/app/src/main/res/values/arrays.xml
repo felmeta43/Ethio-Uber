@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Withdrawal method options displayed in the spinner -->
+    <string-array name="withdrawal_methods">
+        <item>Telebirr</item>
+        <item>CBE Birr</item>
+        <item>Bank Transfer — CBE</item>
+        <item>Bank Transfer — Awash</item>
+        <item>Bank Transfer — Abyssinia</item>
+        <item>Bank Transfer — Dashen</item>
+        <item>Bank Transfer — BOA</item>
+    </string-array>
+
+    <!-- Vehicle type options for registration spinner -->
+    <string-array name="vehicle_types">
+        <item>Motorcycle</item>
+        <item>Car</item>
+        <item>Bicycle</item>
+        <item>Truck</item>
+    </string-array>
+</resources>

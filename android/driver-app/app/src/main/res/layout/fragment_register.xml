@@ -16,7 +16,7 @@
         android:paddingTop="32dp"
         android:paddingBottom="32dp">
 
-        <!-- Step indicator -->
+        <!-- Step indicator text & progress -->
         <TextView
             android:id="@+id/tvStep"
             android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
             android:max="100"
             android:layout_marginBottom="24dp" />
 
-        <!-- Title -->
+        <!-- Page title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,7 +53,9 @@
             android:textColor="@color/text_secondary"
             android:layout_marginBottom="24dp" />
 
-        <!-- ── STEP 1: Personal Info ────────────────────────────────────── -->
+        <!-- ═══════════════════════════════════════════════════════
+             STEP 1 — Personal Info
+             ═══════════════════════════════════════════════════════ -->
         <LinearLayout
             android:id="@+id/stepLayout1"
             android:layout_width="match_parent"
@@ -61,6 +63,7 @@
             android:orientation="vertical"
             android:visibility="visible">
 
+            <!-- Full Name -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilFullName"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -70,13 +73,14 @@
                 android:layout_marginBottom="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_name"
+                    android:id="@+id/etFullName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName|textCapWords"
                     android:imeOptions="actionNext" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Phone -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilPhone"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -86,13 +90,14 @@
                 android:layout_marginBottom="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_phone"
+                    android:id="@+id/etPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
                     android:imeOptions="actionNext" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Password -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilPassword"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -103,13 +108,14 @@
                 app:endIconMode="password_toggle">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_password"
+                    android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:imeOptions="actionNext" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Confirm Password -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilConfirmPassword"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -120,7 +126,7 @@
                 app:endIconMode="password_toggle">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_confirm_password"
+                    android:id="@+id/etConfirmPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
@@ -129,7 +135,9 @@
 
         </LinearLayout>
 
-        <!-- ── STEP 2: Vehicle Info ─────────────────────────────────────── -->
+        <!-- ═══════════════════════════════════════════════════════
+             STEP 2 — Vehicle & ID Info
+             ═══════════════════════════════════════════════════════ -->
         <LinearLayout
             android:id="@+id/stepLayout2"
             android:layout_width="match_parent"
@@ -137,6 +145,7 @@
             android:orientation="vertical"
             android:visibility="gone">
 
+            <!-- National ID Number -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilNationalId"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -153,6 +162,7 @@
                     android:imeOptions="actionNext" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Driver License Number -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilLicenseNumber"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -169,6 +179,7 @@
                     android:imeOptions="actionNext" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Vehicle Type Spinner -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -185,6 +196,7 @@
                 android:paddingStart="8dp"
                 android:layout_marginBottom="16dp" />
 
+            <!-- Vehicle Plate -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilVehiclePlate"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -201,59 +213,28 @@
                     android:imeOptions="actionNext" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Vehicle Model -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilVehicleModel"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/vehicle_model"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etVehicleModel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapWords"
-                    android:imeOptions="actionNext" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- Simplified fields also accessible from step 1 spec -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilVehicleType"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/vehicle_type"
-                android:layout_marginBottom="16dp"
-                android:visibility="gone">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_vehicle_type"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textCapWords"
-                    android:hint="e.g. Motorcycle" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilLicensePlate"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/license_plate"
-                android:layout_marginBottom="16dp"
-                android:visibility="gone">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_license_plate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textCapCharacters" />
+                    android:imeOptions="actionDone" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
-        <!-- ── STEP 3: Document Uploads ─────────────────────────────────── -->
+        <!-- ═══════════════════════════════════════════════════════
+             STEP 3 — Document Photos
+             ═══════════════════════════════════════════════════════ -->
         <LinearLayout
             android:id="@+id/stepLayout3"
             android:layout_width="match_parent"
@@ -261,13 +242,13 @@
             android:orientation="vertical"
             android:visibility="gone">
 
-            <!-- National ID Upload -->
+            <!-- National ID upload -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="National ID Photo"
-                android:textColor="@color/text_secondary"
                 android:textSize="13sp"
+                android:textColor="@color/text_secondary"
                 android:layout_marginBottom="4dp" />
 
             <ImageView
@@ -277,7 +258,7 @@
                 android:scaleType="centerCrop"
                 android:background="@color/divider"
                 android:contentDescription="National ID preview"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="6dp" />
 
             <TextView
                 android:id="@+id/tvNationalIdFileName"
@@ -286,7 +267,7 @@
                 android:text="No file selected"
                 android:textSize="12sp"
                 android:textColor="@color/text_secondary"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="6dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnUploadNationalId"
@@ -296,13 +277,13 @@
                 android:text="Upload National ID"
                 android:layout_marginBottom="20dp" />
 
-            <!-- Driver's License Upload -->
+            <!-- License upload -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Driver\'s License Photo"
-                android:textColor="@color/text_secondary"
                 android:textSize="13sp"
+                android:textColor="@color/text_secondary"
                 android:layout_marginBottom="4dp" />
 
             <ImageView
@@ -312,7 +293,7 @@
                 android:scaleType="centerCrop"
                 android:background="@color/divider"
                 android:contentDescription="License preview"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="6dp" />
 
             <TextView
                 android:id="@+id/tvLicenseFileName"
@@ -321,33 +302,23 @@
                 android:text="No file selected"
                 android:textSize="12sp"
                 android:textColor="@color/text_secondary"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="6dp" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_upload_license"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/upload_license"
-                android:layout_marginBottom="20dp" />
-
-            <!-- Also expose the same button with id btnUploadLicense used in RegisterFragment.kt -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnUploadLicense"
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/upload_license"
-                android:layout_marginBottom="8dp"
-                android:visibility="gone" />
+                android:layout_marginBottom="20dp" />
 
-            <!-- Vehicle Photo Upload -->
+            <!-- Vehicle photo upload -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Vehicle Photo"
-                android:textColor="@color/text_secondary"
                 android:textSize="13sp"
+                android:textColor="@color/text_secondary"
                 android:layout_marginBottom="4dp" />
 
             <ImageView
@@ -357,7 +328,7 @@
                 android:scaleType="centerCrop"
                 android:background="@color/divider"
                 android:contentDescription="Vehicle photo preview"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="6dp" />
 
             <TextView
                 android:id="@+id/tvVehiclePhotoFileName"
@@ -366,7 +337,7 @@
                 android:text="No file selected"
                 android:textSize="12sp"
                 android:textColor="@color/text_secondary"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="6dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnUploadVehiclePhoto"
@@ -374,11 +345,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/upload_vehicle_photo"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="8dp" />
 
         </LinearLayout>
 
-        <!-- ── Navigation Buttons ──────────────────────────────────────── -->
+        <!-- ═══════════════════════════════════════════════════════
+             Navigation Buttons (Back / Next/Register)
+             ═══════════════════════════════════════════════════════ -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -406,27 +379,16 @@
                 app:cornerRadius="8dp" />
         </LinearLayout>
 
-        <!-- Also expose btn_register as alias -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_register"
-            android:padding="14dp"
-            app:cornerRadius="8dp"
-            android:visibility="gone"
-            android:layout_marginBottom="8dp" />
-
-        <!-- Progress Bar -->
+        <!-- Progress Bar (shown during API call) -->
         <ProgressBar
-            android:id="@+id/progress_bar"
+            android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:visibility="gone"
             android:layout_marginBottom="8dp" />
 
-        <!-- Login Link -->
+        <!-- Login link -->
         <TextView
             android:id="@+id/tvLogin"
             android:layout_width="wrap_content"
@@ -436,18 +398,6 @@
             android:textColor="@color/primary"
             android:textSize="14sp"
             android:padding="8dp" />
-
-        <!-- Also tv_login alias -->
-        <TextView
-            android:id="@+id/tv_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/already_have_account"
-            android:textColor="@color/primary"
-            android:textSize="14sp"
-            android:padding="8dp"
-            android:visibility="gone" />
 
     </LinearLayout>
 
